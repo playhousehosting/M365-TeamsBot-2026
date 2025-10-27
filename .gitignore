@@ -1,5 +1,6 @@
 # Microsoft 365 Agents Toolkit / TeamsFx files
 env/.env.*.user
+!env/.env.*.user.sample
 env/.env.local
 .localConfigs
 .localConfigs.*

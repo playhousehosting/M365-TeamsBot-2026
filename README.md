@@ -54,6 +54,8 @@ Real-time access to official Microsoft documentation through Model Context Proto
 
 ## 🚀 Quick Start
 
+> 📘 **New to the project?** Check out our [Quick Setup Guide](QUICK_START.md) for a streamlined getting started experience!
+
 ### Prerequisites
 
 - **Node.js**: Version 20 or 22 ([Download](https://nodejs.org/))
@@ -77,10 +79,24 @@ Real-time access to official Microsoft documentation through Model Context Proto
 
 3. **Configure your OpenAI API key**
    
-   Create or edit `env/.env.playground.user`:
-   ```env
-   SECRET_OPENAI_API_KEY=your_openai_api_key_here
+   Copy the sample environment file and add your API key:
+   ```bash
+   # For Playground testing (recommended)
+   cp env/.env.playground.user.sample env/.env.playground.user
+   
+   # For Local Teams development
+   cp env/.env.local.user.sample env/.env.local.user
+   
+   # For Azure production
+   cp env/.env.dev.user.sample env/.env.dev.user
    ```
+   
+   Then edit the appropriate `.env.*.user` file:
+   ```env
+   SECRET_OPENAI_API_KEY=sk-proj-your-openai-api-key-here
+   ```
+   
+   > 💡 **Tip**: Sample environment files include all available configuration options with explanations
 
 4. **Build the project**
    ```bash
@@ -182,9 +198,12 @@ M365-TeamsBot-2026/
 │   ├── color.png                       # App icon (color)
 │   └── outline.png                     # App icon (outline)
 ├── 📁 env/                             # Environment configurations
-│   ├── .env.local                      # Local development
-│   ├── .env.playground                 # Playground environment
-│   └── .env.dev                        # Development environment
+│   ├── .env.local                      # Local development (committed)
+│   ├── .env.playground                 # Playground environment (committed)
+│   ├── .env.dev                        # Azure development (committed)
+│   ├── .env.playground.user.sample     # Sample playground config
+│   ├── .env.local.user.sample          # Sample local config
+│   └── .env.dev.user.sample            # Sample Azure config
 ├── 📁 infra/                           # Azure infrastructure templates
 │   ├── azure.bicep
 │   ├── azure.parameters.json
@@ -236,15 +255,46 @@ The bot uses **topic-aware search** with 6 admin domains:
 
 ### Environment Variables
 
-Create `env/.env.playground.user` (for local testing):
-```env
-SECRET_OPENAI_API_KEY=sk-...your-openai-key...
+### Environment Variables
+
+**Sample configuration files are provided** in the `env/` directory:
+- `env/.env.playground.user.sample` - For playground testing
+- `env/.env.local.user.sample` - For local Teams development  
+- `env/.env.dev.user.sample` - For Azure production
+
+Copy the appropriate sample file to create your configuration:
+
+```bash
+# For playground testing
+cp env/.env.playground.user.sample env/.env.playground.user
 ```
 
-For production deployment, set in Azure App Settings:
-- `OPENAI_API_KEY`: Your OpenAI API key
+**Required in all environments:**
+```env
+SECRET_OPENAI_API_KEY=sk-proj-your-openai-api-key-here
+```
+
+**Optional AI model settings:**
+```env
+OPENAI_MODEL_NAME=gpt-4o          # Model to use (default: gpt-4o)
+OPENAI_TEMPERATURE=0.7            # Creativity level (default: 0.7)
+OPENAI_MAX_TOKENS=2000            # Max response length (default: 2000)
+```
+
+**Optional bot behavior:**
+```env
+MAX_CONVERSATION_HISTORY=20       # Messages to remember (default: 20)
+DEBUG_MODE=false                  # Enable verbose logging (default: false)
+MICROSOFT_LEARN_ENABLED=true      # Enable MCP integration (default: true)
+```
+
+For production deployment, configure in Azure App Settings:
+- `OPENAI_API_KEY`: Your OpenAI API key (use Key Vault reference)
 - `MICROSOFT_APP_ID`: Bot registration app ID
 - `MICROSOFT_APP_PASSWORD`: Bot registration secret
+- `APPLICATIONINSIGHTS_CONNECTION_STRING`: For monitoring
+
+> 💡 **Best Practice**: Use Azure Key Vault for production secrets
 
 ## 🔧 Development
 
