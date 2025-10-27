@@ -1,0 +1,80 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.23",
+    "version": "1.0.0",
+    "id": "12345678-1234-5678-9abc-123456789012",
+    "developer": {
+        "name": "M365 Admin Team",
+        "websiteUrl": "https://www.microsoft.com",
+        "privacyUrl": "https://www.microsoft.com/privacy",
+        "termsOfUseUrl": "https://www.microsoft.com/terms"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "M365 Admin Assistant",
+        "full": "Microsoft 365 Administrator Assistant with Chain of Thought"
+    },
+    "description": {
+        "short": "AI-powered M365 admin assistant with expert guidance",
+        "full": "An intelligent Microsoft 365 Administrator Assistant powered by GPT-4o with chain of thought reasoning. Provides expert guidance for user management, security compliance, troubleshooting, and policy management tasks."
+    },
+    "accentColor": "#0078D4",
+    "bots": [
+        {
+            "botId": "12345678-1234-5678-9abc-123456789012",
+            "scopes": [
+                "team",
+                "groupChat", 
+                "personal"
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false,
+            "commandLists": [
+                {
+                    "scopes": [
+                        "personal",
+                        "team",
+                        "groupChat"
+                    ],
+                    "commands": [
+                        {
+                            "title": "Create User Account",
+                            "description": "How do I create a new user account for our team?"
+                        },
+                        {
+                            "title": "Security Alert Investigation", 
+                            "description": "Help me investigate a security alert with suspicious activities"
+                        },
+                        {
+                            "title": "DLP Policy Setup",
+                            "description": "How do I configure Data Loss Prevention policies?"
+                        },
+                        {
+                            "title": "User Access Troubleshooting",
+                            "description": "A user cannot access SharePoint - how do I troubleshoot this?"
+                        },
+                        {
+                            "title": "System Health Check",
+                            "description": "test"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "composeExtensions": [],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [],
+    "webApplicationInfo": {
+        "id": "12345678-1234-5678-9abc-123456789012",
+        "resource": "https://botframework.com"
+    }
+}

@@ -1,0 +1,124 @@
+# Microsoft 365 Agents Toolkit / TeamsFx files
+env/.env.*.user
+env/.env.local
+.localConfigs
+.localConfigs.*
+.notification.localstore.json
+.notification.playgroundstore.json
+appPackage/build
+appPackage/*.zip
+.fx/
+.deployment/
+subscriptionInfo.json
+projectSettings.json
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Build output
+lib/
+dist/
+build/
+*.js.map
+*.d.ts.map
+*.tsbuildinfo
+
+# Environment variables (CRITICAL: Contains API keys and secrets)
+.env
+.env.local
+*.user
+*apikey*
+*api-key*
+*secret*
+*SECRET*
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+.AppleDouble
+.LSOverride
+$RECYCLE.BIN/
+*~
+
+# IDE and Editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing and Coverage
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Optional npm/yarn cache
+.npm
+.eslintcache
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.pnp.*
+
+# Temporary folders
+tmp/
+temp/
+
+# Certificate files (NEVER commit)
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+
+# Azure specific
+.azure/
+azureconfig.json
+local.settings.json
+ApplicationInsights.config
+
+# Bot Framework
+*.transcript
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Database files
+*.sqlite
+*.db
+
+# Python (if added)
+__pycache__/
+*.py[cod]
+venv/
+ENV/
+
+# devTools
+devTools/
